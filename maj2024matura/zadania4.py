@@ -91,3 +91,31 @@ print(koncowe_liczby)
 f.close()
 '''
 
+# zadanie 4.4
+f = open("liczby.txt", "r")
+liczby = f.readline()
+pierwsza_linia = liczby.split(' ')
+for i in range(len(pierwsza_linia)):
+    pierwsza_linia[i] = int(pierwsza_linia[i])
+najw_srd = 0
+ilosc_znakow = 0
+licz = 0
+
+for i in range(len(pierwsza_linia)):
+    czyciag_git = True
+    ilosc_elementow = 0
+    suma = 0
+    j = 0
+    sublinia = pierwsza_linia[i:]
+    for a in range(len(sublinia)):
+        ilosc_elementow += 1
+        suma = (suma + pierwsza_linia[i+j])
+        if ilosc_elementow >= 50:
+            if suma/ilosc_elementow > najw_srd:
+                najw_srd = suma/ilosc_elementow
+                ilosc_znakow = ilosc_elementow
+                licz = pierwsza_linia[i]
+        j += 1
+
+print("najwieksza srednia: ",najw_srd," ilosc znaków: ", ilosc_znakow," zaczyna sie od liczby: ", licz)
+f.close()
